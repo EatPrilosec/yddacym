@@ -15,6 +15,10 @@ jobs:
       #
     steps:
       - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '>= 1.24' # The Go version to download (if necessary) and use.
       
       - name: Build image
         run: docker build --file Dockerfile --no-cache-filter add --tag $IMAGE_NAME --label "runnumber=${GITHUB_RUN_ID}" . 
