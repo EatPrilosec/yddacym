@@ -1,5 +1,7 @@
 FROM caddy:2.9.1-builder-alpine AS builder
 
+RUN apk upgrade --no-cache go
+
 RUN xcaddy build \
     --with github.com/lucaslorentz/caddy-docker-proxy/v2 \
     --with github.com/mholt/caddy-dynamicdns \
