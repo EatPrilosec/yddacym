@@ -1,4 +1,4 @@
-FROM caddy:2.10-builder-alpine AS builder
+FROM caddy:2.9.1-builder-alpine AS builder
 
 #RUN rm -rf /usr/local/go
 #RUN wget -O/tmp/go1.24.2.linux-amd64.tar.gz "https://go.dev/dl/go1.24.2.linux-amd64.tar.gz"
@@ -8,11 +8,11 @@ FROM caddy:2.10-builder-alpine AS builder
 RUN xcaddy build \
     --with github.com/lucaslorentz/caddy-docker-proxy/v2 \
     --with github.com/mholt/caddy-dynamicdns \
-    --with github.com/caddy-dns/cloudflare
+    --with github.com/caddy-dns/cloudflare@188b4850c0f2f5565a6310810c936ea960e2210f
 
 
 
-FROM --platform=$BUILDPLATFORM lucaslorentz/caddy-docker-proxy:2.9.2-alpine
+FROM --platform=$BUILDPLATFORM lucaslorentz/caddy-docker-proxy:2.9.1-alpine
 COPY --from=builder /usr/bin/caddy /bin/caddy
 
 
