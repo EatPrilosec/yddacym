@@ -1,8 +1,8 @@
 FROM caddy:2.10-builder-alpine AS builder
 
-RUN rm -rf /usr/local/go
-RUN wget -O/tmp/go1.24.2.linux-amd64.tar.gz "https://go.dev/dl/go1.24.2.linux-amd64.tar.gz"
-RUN tar -C /usr/local -xzf /tmp/go1.24.2.linux-amd64.tar.gz
+#RUN rm -rf /usr/local/go
+#RUN wget -O/tmp/go1.24.2.linux-amd64.tar.gz "https://go.dev/dl/go1.24.2.linux-amd64.tar.gz"
+#RUN tar -C /usr/local -xzf /tmp/go1.24.2.linux-amd64.tar.gz
 
 
 RUN xcaddy build \
