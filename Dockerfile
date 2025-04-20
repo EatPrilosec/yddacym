@@ -8,7 +8,6 @@ RUN tar -C /usr/local -xzf /tmp/go1.24.2.linux-amd64.tar.gz
 RUN xcaddy build master \
     --with github.com/lucaslorentz/caddy-docker-proxy/v2 \
     --with github.com/mholt/caddy-dynamicdns \
-    --with github.com/caddyserver/certmagic \
     --with github.com/caddyserver/caddy
 
 
